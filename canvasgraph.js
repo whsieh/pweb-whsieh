@@ -1,17 +1,8 @@
 
-window.requestAnimationFrame = window.requestAnimationFrame || // standard
-	window.mozRequestAnimationFrame || // firefox
-	window.webkitRequestAnimationFrame || // Chrome and Safari
+window.requestAnimationFrame = window.requestAnimationFrame ||
+	window.mozRequestAnimationFrame ||
+	window.webkitRequestAnimationFrame ||
 	window.msRequestAnimationFrame;
-
-$.getDocHeight = function(){
-    return Math.max(
-        $(document).height(),
-        $(window).height(),
-        /* For opera: */
-        document.documentElement.clientHeight
-    );
-};
 
 // Bind some common math operators for convenience
 var PI = Math.PI, round = Math.round,
@@ -24,8 +15,8 @@ random = Math.random
 
 // Initialize canvas and 2D context vars
 var canv = document.getElementById('main')
-canv.width = document.body.scrollWidth
-canv.height = $.getDocHeight()	// fixed Firefox compat
+canv.width = $(window).width()
+canv.height = $(window).height()
 var cwidth = canv.width
 var cheight = canv.height
 var ctx = canv.getContext('2d')
@@ -115,9 +106,8 @@ var labels = {
 var projectNames = {'dygraph':true,'qwop':true,'gomoku':true,'pweb':true}
 var contactNames = {'gmail':true,'linkedin':true,'github':true}
 // Maps a div ID to whether the corresponding info panel is showing
-var panels = {'#about':false,'#resume':false,
-	'#gomoku':false,'#dygraph':false,'#qwop':false,
-	'#pweb':false}
+var panels = {'#about':false,'#gomoku':false,'#dygraph':false,
+			'#qwop':false,'#pweb':false}
 
 var curPanel = null
 
@@ -129,11 +119,6 @@ var EQUILIBRIUM = 25
 var DRAG = 0.9
 var minX=cwidth/2,minY=cheight/2,
 	maxX=cwidth/2,maxY=cheight/2
-// var loadmsg = new LoadingMessage('Loading','80px joecasual',cwidth/2,cheight/2,
-// 		function(t) {
-// 			return 0.5*(-cos(0.06*t))+0.5
-// 		})
-// var loadloop = -1, graphloop = -1
 var initialized = false
 var mousePos = P(cwidth/2,cheight/2)
 var prevMousePos = P(cwidth/2,cheight/2)
@@ -160,7 +145,46 @@ var projExpandLock = false
 var contExpand = false
 var contExpandLock = false
 
+var scrollMessage = null
+
 /* PERSONAL WEBSITE-SPECIFIC */
+
+function FlashingMessage(text,font,x,y,freq,maxt,oncomplete) {
+	this.x = x
+	this.y = y
+	this.t = 0
+	this.maxt = maxt
+	this.fade = function(t) {
+		return (1-cos(freq*t))/2
+	}
+	this.text = text
+	this.font = font
+	var oldFont = ctx.font
+	ctx.font = font
+	this.textwidth = ctx.measureText(text).width
+	ctx.font = oldFont
+	this.finished = false
+	this.oncomplete = oncomplete
+}
+
+FlashingMessage.prototype.clear = function() {
+	if (!this.finished) {
+		ctx.clearRect(this.x-10,this.y-50,this.textwidth+20,100)
+	}
+}
+
+FlashingMessage.prototype.draw = function() {
+	if (!this.finished && this.t < this.maxt) {
+		var oldAlpha = ctx.globalAlpha
+		ctx.globalAlpha = this.fade(this.t)
+		this.t++
+		drawText(this.text,this.x,this.y,this.font)
+		ctx.globalAlpha = oldAlpha
+	} else {
+		this.oncomplete()
+		this.finished = true
+	}
+}
 
 function hideInfoPanels() {
 	for (id in panels) {
@@ -171,14 +195,14 @@ function hideInfoPanels() {
 }
 
 $(window).resize(function() {
-	canv.width = document.body.scrollWidth
-	canv.height = document.body.scrollHeight
-	var cwidth = canv.width
-	var cheight = canv.height
-	var canvRect = canv.getClientRects()[0]
-	var ctop = canvRect.top,
+	canv.width = $(window).width()
+	canv.height = $(window).height()
+	cwidth = canv.width
+	cheight = canv.height
+	canvRect = canv.getClientRects()[0]
+	ctop = canvRect.top,
 	cleft = canvRect.left
-	var cWHRatio = cwidth/cheight
+	cWHRatio = cwidth/cheight
 });
 
 function scrollView(shiftX,shiftY) {
@@ -237,7 +261,7 @@ canv.onmousemove = function(event) {
 	handleVertexMouseover()
 }
 
-canv.onmouseup = canv.onmouseout = function(event) {
+canv.onmouseout = function(event) {
 	doScroll = false
 	setTimeout(function() {
 		if (!doScroll) {
@@ -245,6 +269,8 @@ canv.onmouseup = canv.onmouseout = function(event) {
 		}
 	},500)
 }
+
+canv.onmouseup = canv.onmouseout
 
 canv.onmousedown = function(event) {
 	mousePos.x = event.clientX
@@ -265,21 +291,21 @@ canv.onmousedown = function(event) {
 		for (var i = 1; i < Vertex.all.length; i++) {
 			Vertex.all[i].setFade(0.005,250)
 		}
-		Edge.all.forEach(function(edge) {
-			edge.setFade(0.005,250)
-		})
+		for (var i=0, n=Edge.all.length; i < n; i++) {
+			Edge.all[i].setFade(0.005,250)
+		}
 		setTimeout(function() {
 			Edge.all = []
 			Vertex.all = [Vertex.all[0]]
 			canv.width = canv.width
 			expandInit()
 			clearAll = true
-			for (var i = 1; i < Vertex.all.length; i++) {
+			for (var i=1,n=Vertex.all.length; i < n; i++) {
 				Vertex.all[i].setFade(0.6,500)
 			}
-			Edge.all.forEach(function(edge) {
-				edge.setFade(0.6,500)
-			})
+			for (var i=0,n=Edge.all.length; i < n; i++) {
+				Edge.all[i].setFade(0.6,500)
+			}
 			setMouseoverActive(true)
 			setTimeout(function() {
 				clearAll = false
@@ -332,12 +358,7 @@ canv.onmousedown = function(event) {
 
 		// Resume
 		case 'resume':
-		if (curPanel) {
-			hideCurrentPanel()
-		} else {
-			curPanel = '#resume'
-			showPanel(curPanel)
-		}
+		link('whsieh-resume.pdf')
 		break;
 
 		// Dygraph
@@ -401,7 +422,10 @@ canv.onmousedown = function(event) {
 
 function showPanel(panel) {
 	var w=$(panel).width(),h=$(panel).height()
-	$(panel).css({left:(cwidth-w)/2,top:(cheight-h)/2})
+	$(panel).css({
+		left:(cwidth-w)/2+'px',
+		top:(cheight-h)/2+'px'
+	})
 	$(panel).fadeIn(400);
 	$('#main').animate({backgroundColor:'#555555'},400)
 	curPanel = panel
@@ -430,28 +454,6 @@ function handleVertexMouseover() {
 	}
 }
 
-// function LoadingMessage(text,font,x,y,fadeFunction) {
-// 	this.text = text
-// 	this.font = font
-// 	this.fadeFunction = fadeFunction
-// 	this.x = x
-// 	this.y = y
-// 	var oldFont = ctx.font
-// 	ctx.font = font
-// 	this.offsetX = ctx.measureText(this.text).width/2
-// 	ctx.font = oldFont
-// }
-
-// LoadingMessage.prototype.draw = function(t) {
-// 	t = (t==undefined) ? 0 : t
-// 	var oldAlpha = ctx.globalAlpha
-// 	var oldFont = ctx.font
-
-// 	ctx.globalAlpha = this.fadeFunction(t)
-// 	drawText(this.text,this.x-this.offsetX,this.y,this.font)
-// 	ctx.globalAlpha = oldAlpha
-// }
-
 function init() {
 	initializeMe()
 	initializePhysicsLoop()
@@ -459,18 +461,15 @@ function init() {
 }
 
 function fadeGraph(alpha) {
-	Vertex.all.forEach(function(vtx) {
-		vtx.setFade(alpha,1000)
-	})
-	Edge.all.forEach(function(edge) {
-		edge.setFade(alpha,1000)
-	})
+	for (var i=0,n=Vertex.all.length; i < n; i++) {
+		Vertex.all[i].setFade(alpha,1000)		
+	}
+	for (var i=0,n=Edge.all.length; i < n; i++) {
+		Edge.all[i].setFade(alpha,1000)
+	}
 }
 
 function initializePhysicsLoop() {
-	// graphloop = setInterval(function() {
-	// 	step()
-	// },TIMESTEPMS)
 	step()
 }
 
@@ -610,6 +609,9 @@ function drawAll() {
 	for (var i = 0; i < Vertex.all.length; i++) {
 		Vertex.all[i].draw()
 	}
+	if (scrollMessage) {
+		scrollMessage.draw()
+	}
 }
 
 /**
@@ -681,7 +683,8 @@ function update() {
 		}
 	}
 	// Account for drag and update pos,vel
-	Vertex.all.forEach(function(vtx) {
+	for (var i=0,n=Vertex.all.length; i < n; i++) {
+		var vtx = Vertex.all[i]
 		var dragX = -vtx.vel.x*DRAG,
 			dragY = -vtx.vel.y*DRAG
 		offset(vtx.acc,dragX,dragY)
@@ -690,7 +693,7 @@ function update() {
 		vtx.vPos = getViewPos(vtx.gPos)
 		vtx.acc.x = 0
 		vtx.acc.y = 0
-	})
+	}
 }
 
 function step() {
@@ -949,17 +952,18 @@ function randomXY(x,y,dx,dy) {
 }
 
 function clear(total) {
-	// canv.width = canv.width
-	// ctx.clearRect(minX-75,minY-75,(maxX-minX)+175,(maxY-minY)+175)
 	if (total || clearAll) {
 		ctx.clearRect(0, 0, canv.width, canv.height);
 	} else {
-		Edge.all.forEach(function(edge) {
-			edge.clear()
-		})
-		Vertex.all.forEach(function(vertex) {
-			vertex.clear()
-		})
+		for (var i=0,n=Edge.all.length; i < n; i++) {
+			Edge.all[i].clear()
+		}
+		for (var i=0,n=Vertex.all.length; i < n; i++) {
+			Vertex.all[i].clear()
+		}
+	}
+	if (scrollMessage) {
+		scrollMessage.clear()
 	}
 }
 
@@ -1109,12 +1113,24 @@ for (var panel in panels) {
 	})
 }
 
+hideInfoPanels()
 // Force the custom font to load after a short delay by writing
 // an empty string onto the canvas
 setTimeout(function() {
 	prepareFont('joecasual',init)
 },500)
-hideInfoPanels()
+setTimeout(function() {
+	scrollMessage = new FlashingMessage('Click & drag to scroll',
+		'24px joecasual',50,50,0.05236,360,function() {
+			scrollMessage = null
+			setTimeout(function() {
+				scrollMessage = new FlashingMessage('Click & drag to scroll',
+				'24px joecasual',50,50,0.05236,360,function() {
+					scrollMessage = null
+				})
+			},10000)
+		})
+},5000)
 
 function hideCurrentPanel() {
 	if (curPanel) {
@@ -1153,4 +1169,33 @@ $('#gomoku-dl').click(function(evt) {
 $('#qwop-app').click(function(evt) {
 	link('app/game.html')
 	evt.stopPropagation()
+})
+
+$('.exp-div').click(function(evt) {
+	evt.stopPropagation()
+	if ($(this).attr('exp')==='1') {
+		$(this).attr('exp','0')
+		$(this).animate({
+			width:'100px',
+			height:'100px'
+		},250)
+	} else {
+		$(this).attr('exp','1')
+		$(this).animate({
+			width:'500px',
+			height:'500px'
+		},250)
+	}
+})
+$('.exp-div').hover(function(evt) {
+	$(this).animate({
+		opacity:1.0
+	},100)
+},function(evt) {
+	console.log($(this).attr('exp'))
+	if ($(this).attr('exp')===undefined || $(this).attr('exp')==='0') {
+		$(this).animate({
+			opacity:0.4
+		},100)
+	}
 })

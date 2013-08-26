@@ -3,7 +3,11 @@
 	[
 		{
 			"follow_symlinks": true,
-			"path": "C:\\Users\\whsieh\\work\\pweb"
+			"path": "C:\\Users\\whsieh\\work\\pweb-whsieh"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "C:\\Users\\whsieh\\work\\pweb-whsieh\\app\\js"
 		}
 	]
 }

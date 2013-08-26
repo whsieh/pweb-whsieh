@@ -55,7 +55,7 @@
 					The app explores the user's Facebook network by first querying the user's wall feed, then querying the walls of friends mentioned in the feed, and so on. A physics engine runs concurrently, moving the nodes such that groups of close friends appear as clusters.
 				</p>
 				<p>
-					I developed Dygraph back when I thought Swing was the coolest thing in the world<sup>1</sup>. I implemented both the data structures and physics engine on my own, and used Java2D for the animations; I also studied and implemented a variety of algorithms, including force-directed layout (also used on this website) and community partitioning in graphs<sup>2</sup>. Other features include Facebook status comparison using AlchemyAPI to extract keywords from statuses.
+					I developed Dygraph back when I thought Swing was the coolest thing in the world <sup>1</sup>. I implemented both the data structures and physics engine on my own, and used Java2D for the animations; I also studied and implemented a variety of algorithms, including force-directed layout (also used on this website) and community partitioning in graphs <sup>2</sup>. Other features include Facebook status comparison using AlchemyAPI to extract keywords from statuses.
 				</p>
 				<div>
 					<p class='sup-pg'>
@@ -96,7 +96,7 @@
 				<br>
 				<br>
 				<p>
-					Q(wop), also known as qwop-ai, is a learning agent I developed to solve a physics-based walking game.
+					Q(wop), also known as qwop-ai, is a learning agent I developed to solve a physics-based walking game. You can find the game <a href='#' id='qwop-app'>here</a>. Use the Q,W,O and P keys to move the ragdoll, and see how far you can get!
 				</p>
 				<p>
 					After taking Intro to AI (CS188), I was inspired to write an AI to tackle the brilliantly frustrating flash game QWOP. Unable to find a free non-flash port of the game, I wrote my own walking game in Javascript using the JBox2D physics engine and HTML5 canvas &mdash; similar to the original game, the player controls 4 keys: Q,W,O and P, which rotate the hip and knee joints of a ragdoll.
@@ -115,9 +115,6 @@
 				</p>
 				<p>
 					In an ideal world, this AI would sprint 100m without breaking a sweat. Unfortunately, there are some areas (i.e. the neural network) that I have yet to optimize. While the AI has walked 70+ meters without tipping over, it still has trouble taking its first step from time to time. I suspect that the ANN might be overfitting, and I'm definitely taking a closer look sometime in the near future.
-				</p>
-				<p>
-					In the meantime, you can find the game <a href='#' id='qwop-app'>here</a>. Use the Q,W,O and P keys to move the ragdoll, and see how far you can get!
 				</p>
 				<br><br>
 				<div class='exp-div'>
@@ -138,7 +135,7 @@
 		</div>
 
 		<div class='panel' id='pweb'>
-			<div id='content'>
+			<div class='content'>
 				<br>
 				<div class='heading'>Personal Website</div>
 				<img class='divider' src='icons/divider.png'></img>
@@ -148,7 +145,7 @@
 					You're looking at it right now! I came up with the idea for my website while working on Dygraph, the Facebook friend network visualizer. I reimplemented the force-directed layout algorithm using Javascript and canvas. For the popup panels, I used HTML, CSS and a hint of jQuery.
 				</p>
 				<p>
-					Rather than the sleek "Web 2.0" look and feel of most modern websites, I opted for a more washed-out, vintage art style. I hand-drew and/or used GIMP to create all graphics on this website (except for the Github and LinkedIn logos). Nodes and edges of the graph are meant to appear as if they were sketched on paper. Additionally, the locations of all nodes are randomly generated &mdash; the physics engine repositions the graph in real time until it converges to an optimum arrangement.
+					Rather than the sleek "Web 2.0" look and feel of most modern websites, I opted for a more washed-out, vintage art style. I hand-drew and/or used GIMP to create all graphics on this website (except for the Github and LinkedIn logos). Nodes and edges of the graph are meant to appear as if they were sketched on paper. Additionally, the locations of all nodes are randomly generated &mdash; the physics engine repositions the graph in real time as it converges to an optimum arrangement.
 				</p>
 			</div>
 		</div>
@@ -164,10 +161,10 @@
 					Hi. My name is Wenson, and I'm a third-year EECS major at UC Berkeley. When I'm not butting heads against problem sets, I like to brainstorm ideas for small projects and hacks. When I'm not doing either of the above, I'm busy implementing one of these ideas. Among other things, I have a budding interest in machine learning, <a href='#' id='about-algo'>fancy graph algorithms</a>, social data analysis, and web design (read: messing around with canvas).
 				</p>
 				<p>
-					I initially learned to program in Java and built my first apps using Java2D, Swing, and <font color='#CCCCCC'><i>(shudder)</i></font> applets. My earliest example is a D&amp;D character and stat tracking application I wrote for my friends to simplify combat. It is currently preserved in all its hard-coded glory <a href='#' id='about-dnd'>on my Github</a>. 
+					I initially learned to program in Java and built my first apps using Java2D, Swing, and applets. My earliest example is a D&amp;D character and stat tracking application I wrote for my friends to simplify combat. It is currently preserved in all its hard-coded glory <a href='#' id='about-dnd'>on my Github</a>. 
 				</p>
 				<p>
-					I eventually moved on to HTML, CSS and Javascript. Coming from a Java2D background, much of my work (e.g. this website) involves giant interactive canvases. As of Summer 2013, I've been learning more CSS and jquery techniques, as well as building web applications using node.js, Express and MongoDB. 
+					I eventually moved on to HTML, CSS and Javascript. Coming from a Java2D background, much of my work (e.g. this website) involves giant interactive canvases. As of Summer 2013, I've been learning more CSS and jQuery techniques, as well as building web applications using node.js, Express and MongoDB. 
 				</p>
 				<p>
 					Click on the nodes for more information, and click on my name to see the animated graph in action. Click anywhere to close this panel.
@@ -175,31 +172,9 @@
 			</div>
 		</div>
 
-		<div class='panel' id='resume'>
-			
-		</div>
-
 		<canvas id='main'></canvas>
 
-		<script type='text/javascript' src='canvasgraph.js'></script>
-		<script type='text/javascript'>
-		$('.exp-div').mouseenter(function() {
-			$(this).animate({
-				left:'-=200px',
-				top:'-=200px',
-				width:'+=400px',
-				height:'+=400px'
-			},250)
-		})
-		$('.exp-div').mouseleave(function() {
-			$(this).animate({
-				left:'+=200px',
-				top:'+=200px',
-				width:'-=400px',
-				height:'-=400px'
-			},250)
-		})
-		</script>
+		<script type='text/javascript' src='canvasgraph-min.js'></script>
 
 	</body>
 
