@@ -1,0 +1,109 @@
+
+@font-face {
+    font-family: 'joecasual';
+    src: url('fonts/joe5casual.ttf');
+}
+
+html,body {
+	margin: 0;
+	overflow-y:hidden;
+	overflow-x:hidden;
+}
+
+/**{border: blue dashed 1px;}*/
+
+#main {
+	width:100%;
+	height:100%;
+}
+
+a:link {/* unvisited link */
+	text-decoration:none;
+	color:#777777;
+}
+
+a:visited {/* visited link */
+	text-decoration:none;
+	color:#777777;
+}
+
+a:hover {/* mouse over link */
+	text-decoration:none;
+	color:#222222;
+}
+
+a:active {/* selected link */
+	text-decoration:none;
+	color:#000000;
+}
+
+.heading {
+	font-size: 40px;
+	font-family: 'joecasual';
+}
+
+.panel {
+    overflow-y: auto;
+    overflow-x: hidden;
+	font-size: 24px;
+	padding: 10pt;
+	font-family: 'Bad Script';
+	width:50%;
+	height:80%;
+	/*background-image: url('whitepaper.jpg');*/
+	background-color:rgba(255,255,255,0.9);
+	box-shadow:3px 3px 3px #000000;
+	position: fixed;
+	top:0px;
+	left:0px;
+	text-align: center;
+}
+
+.content {
+	margin-left: 25px;
+	margin-right: 25px;
+	margin-bottom: 25px;
+}
+
+.divider {
+	opacity: 0.4;
+}
+
+.sup-pg {
+	text-align:left;
+	font-size: 16px;
+}
+
+.exp-div {
+	box-shadow: 3px 3px 3px #222222;
+	width:100px;
+	height:100px;
+	margin-right: auto;
+	margin-left: auto;
+	opacity: 0.5;
+}
+
+.exp-img {
+	width: 100%;
+	height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(155,155,155,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(155,155,155,0.1); 
+}

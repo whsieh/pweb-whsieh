@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset='UTF-8'>
+		<title>Wenson Hsieh</title>
+		<link rel='stylesheet' href='stylesheet.css' type='text/css'>
+		<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Bad+Script' type='text/css'>
+	</head>
+
+	<body>
+		
+		<script type='text/javascript' src='jquery-2.0.0.min.js'></script>
+		<script type='text/javascript' src='jquery-ui-1.10.3.min.js'></script>
+
+		<div class='panel' id='gomoku'>
+			<div class='content'>
+				<br>
+				<div class='heading'>gomoku</div>
+				<img class='divider' src='icons/divider.png'></img>
+				<br>
+				<br>
+				<p>
+					Started in Summer 2012, GomokuAI was one of my early attempts at AI design. Gomoku is played on a large (~20 by 20) board, and the winner is the first to place 5 consecutive pieces before the opponent.
+				</p>
+				<p>
+					The AI performs a game tree search to depth 4, increased by alpha-beta pruning. An evaluation function gives rewards to sequences of 2 or more pieces, but gives large bonuses to multiple sequences of 3 or more pieces. This encourages aggressive behavior when no moves are apparent, and causes the AI to 'trap' its opponent into unblockable attacks.
+				</p>
+				<p>
+					You can download an executable .jar of the game <a href='#' id='gomoku-dl'>here</a>. Future plans include using neural networks to implement and this minimax algorithm to train a learning agent.
+				</p>
+				<br><br>
+				<div class='exp-div'>
+					<img class='exp-img' src='images/gomoku.png'></img>
+				</div>
+				<br>
+				<br>
+				<br>
+			</div>
+		</div>
+
+		<div class='panel' id='dygraph'>
+			<div class='content'>
+				<br>
+				<div class='heading'>dygraph</div>
+				<img class='divider' src='icons/divider.png'></img>
+				<br>
+				<br>
+				<p>
+					Dygraph is a Facebook app and Java applet that visualizes a user's immediate social network as an animated graph.
+				</p>
+				<p>
+					The app explores the user's Facebook network by first querying the user's wall feed, then querying the walls of friends mentioned in the feed, and so on. A physics engine runs concurrently, moving the nodes such that groups of close friends appear as clusters.
+				</p>
+				<p>
+					I developed Dygraph back when I thought Swing was the coolest thing in the world <sup>1</sup>. I implemented both the data structures and physics engine on my own, and used Java2D for the animations; I also studied and implemented a variety of algorithms, including force-directed layout (also used on this website) and community partitioning in graphs <sup>2</sup>. Other features include Facebook status comparison using AlchemyAPI to extract keywords from statuses.
+				</p>
+				<div>
+					<p class='sup-pg'>
+						<sup>1. I still think Swing and Java2D are pretty neat.
+						</sup>
+						<br>
+						<sup>2. On a side note: Dygraph is currently my largest personal project, weighing in at 7000+ lines.
+						</sup>
+					</p>
+				</div>
+				<br><br>
+				<div class='exp-div'>
+					<img class='exp-img' src='images/dygraph-1.png'></img>
+				</div>
+				<br><br>
+				<div class='exp-div'>
+					<img class='exp-img' src='images/dygraph-2.png'></img>
+				</div>
+				<br><br>
+				<div class='exp-div'>
+					<img class='exp-img' src='images/dygraph-3.png'></img>
+				</div>
+				<br><br>
+				<div class='exp-div'>
+					<img class='exp-img' src='images/dygraph-statuses.png'></img>
+				</div>
+				<br>
+				<br>
+				<br>
+			</div>
+		</div>
+
+		<div class='panel' id='qwop'>
+			<div class='content'>
+				<br>
+				<div class='heading'>Q(wop)</div>
+				<img class='divider' src='icons/divider.png'></img>
+				<br>
+				<br>
+				<p>
+					Q(wop), also known as qwop-ai, is a learning agent I developed to solve a physics-based walking game. You can find the game <a href='#' id='qwop-app'>here</a>. Use the Q,W,O and P keys to move the ragdoll, and see how far you can get!
+				</p>
+				<p>
+					After taking Intro to AI (CS188), I was inspired to write an AI to tackle the brilliantly frustrating flash game QWOP. Unable to find a free non-flash port of the game, I wrote my own walking game in Javascript using the JBox2D physics engine and HTML5 canvas &mdash; similar to the original game, the player controls 4 keys: Q,W,O and P, which rotate the hip and knee joints of a ragdoll.
+				</p>
+				<p>
+					The learning agent combines two primary techniques: reinforcement learning and artificial neural networks.
+				</p>
+				<p>
+					For the former, I implemented and ran a supervised Q-learning algorithm for roughly 10 hours to map states (as described by six features) and actions to utilities. While this yielded good results for a majority of the states, the agent would often get "confused" when presented with states it had only seen once, twice, or never before.
+				</p>
+				<p>
+					I addressed this issue by using neural networks to learn patterns in data taken from successful steps taken by the Q-learning AI. After collecting thousands of datapoints, I implemented a basic feed-forward ANN with a single hidden layer and used back-propagation to train weights and biases. The result is a neural network capable of guessing which outputs (a combination of Q,W,O,and P) might be appropriate for a given state.
+				</p>
+				<p>
+					This results in a walking agent that (1) relies generally on a lookup table of Q-values to determine its next move, and (2) uses a neural network as a fallback when the Q-values are unknown or otherwise not converged.
+				</p>
+				<p>
+					In an ideal world, this AI would sprint 100m without breaking a sweat. Unfortunately, there are some areas (i.e. the neural network) that I have yet to optimize. While the AI has walked 70+ meters without tipping over, it still has trouble taking its first step from time to time. I suspect that the ANN might be overfitting, and I'm definitely taking a closer look sometime in the near future.
+				</p>
+				<br><br>
+				<div class='exp-div'>
+					<img class='exp-img' src='images/qwop-1.png'></img>
+				</div>
+				<br><br>
+				<div class='exp-div'>
+					<img class='exp-img' src='images/qwop-2.png'></img>
+				</div>
+				<br><br>
+				<div class='exp-div'>
+					<img class='exp-img' src='images/qwop-3.png'></img>
+				</div>
+				<br>
+				<br>
+				<br>
+			</div>
+		</div>
+
+		<div class='panel' id='pweb'>
+			<div class='content'>
+				<br>
+				<div class='heading'>Personal Website</div>
+				<img class='divider' src='icons/divider.png'></img>
+				<br>
+				<br>
+				<p>
+					You're looking at it right now! I came up with the idea for my website while working on Dygraph, the Facebook friend network visualizer. I reimplemented the force-directed layout algorithm using Javascript and canvas. For the popup panels, I used HTML, CSS and a hint of jQuery.
+				</p>
+				<p>
+					Rather than the sleek "Web 2.0" look and feel of most modern websites, I opted for a more washed-out, vintage art style. I hand-drew and/or used GIMP to create all graphics on this website (except for the Github and LinkedIn logos). Nodes and edges of the graph are meant to appear as if they were sketched on paper. Additionally, the locations of all nodes are randomly generated &mdash; the physics engine repositions the graph in real time as it converges to an optimum arrangement.
+				</p>
+			</div>
+		</div>
+
+		<div class='panel' id='about'>
+			<div class='content'>
+				<br>
+				<div class='heading'>about</div>
+				<img class='divider' src='icons/divider.png'></img>
+				<br>
+				<br>
+				<p>
+					Hi. My name is Wenson, and I'm a third-year EECS major at UC Berkeley. When I'm not butting heads against problem sets, I like to brainstorm ideas for small projects and hacks. When I'm not doing either of the above, I'm busy implementing one of these ideas. Among other things, I have a budding interest in machine learning, <a href='#' id='about-algo'>fancy graph algorithms</a>, social data analysis, and web design (read: messing around with canvas).
+				</p>
+				<p>
+					I initially learned to program in Java and built my first apps using Java2D, Swing, and applets. My earliest example is a D&amp;D character and stat tracking application I wrote for my friends to simplify combat. It is currently preserved in all its hard-coded glory <a href='#' id='about-dnd'>on my Github</a>. 
+				</p>
+				<p>
+					I eventually moved on to HTML, CSS and Javascript. Coming from a Java2D background, much of my work (e.g. this website) involves giant interactive canvases. As of Summer 2013, I've been learning more CSS and jQuery techniques, as well as building web applications using node.js, Express and MongoDB. 
+				</p>
+				<p>
+					Click on the nodes for more information, and click on my name to see the animated graph in action. Click anywhere to close this panel.
+				</p>
+			</div>
+		</div>
+
+		<canvas id='main'></canvas>
+
+		<script type='text/javascript' src='canvasgraph-min.js'></script>
+
+	</body>
+
+</html>

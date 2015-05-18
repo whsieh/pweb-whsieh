@@ -1,0 +1,62 @@
+<head>
+    <title>Q(wop)</title>
+    <!-- Import Box2D JS -->
+	<script type='text/javascript' src='js/lib/Box2d-min.js'></script>
+    <script type='text/javascript' src='js/lib/jquery-2.0.0.min.js'></script>
+    <!-- CSS -->
+    <style type='text/css'>
+        #canvas {
+            border-radius:15px;
+            border:15px solid #14140f;
+        }
+
+        * {
+            font-family: Arial;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <canvas id='canvas'></canvas>
+    <script type='text/javascript' src='js/game-min.js'></script>
+    <script type='text/javascript' src='js/neuralnet-min.js'></script>
+    <script type='text/javascript' src='js/walk-neural-min.js'></script>
+
+    <br><br>
+    <button onclick='startAI()' id='startbtn'>
+        Start AI
+    </button>
+    <button onclick='stopAI()' id='stopbtn'>
+        Stop AI
+    </button>
+    <button onclick='resetRunner()' id='resetbtn'>
+        Reset Ragdoll
+    </button>
+    <br><br>
+    <input id='nn_chk' type='checkbox' checked='checked'>
+        Use Neural Network
+    </input>
+    <input id='qt_chk' type='checkbox' checked='checked'>
+        Use Q-Table
+    </input>
+
+    <script>
+    $('#nn_chk').click( function() {
+        if ($('#nn_chk').is(':checked')) {
+            NN_WEIGHT = 10
+        } else {
+            NN_WEIGHT = 0
+        }
+    })
+    $('#qt_chk').click( function() {
+        if ($('#qt_chk').is(':checked')) {
+            QT_WEIGHT = 1
+        } else {
+            QT_WEIGHT = 0
+        }
+    })
+    </script>
+
+</body>

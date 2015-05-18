@@ -1,0 +1,601 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"margi",
+				"margin-bottom"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"java",
+				"Javascript"
+			],
+			[
+				"cont",
+				"contExpand"
+			],
+			[
+				"exp",
+				"projExpand"
+			],
+			[
+				"font-",
+				"font-style"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"linked",
+				"linkedin"
+			],
+			[
+				"proje",
+				"projExpandLock"
+			],
+			[
+				"projExp",
+				"projExpandLock"
+			],
+			[
+				"hide",
+				"hideCurrentPanel"
+			],
+			[
+				"close",
+				"closeCurrentPanel"
+			],
+			[
+				"view",
+				"viewOffsetVel"
+			],
+			[
+				"viewOffset",
+				"viewOffsetVel"
+			],
+			[
+				"viewO",
+				"viewOffsetVel"
+			],
+			[
+				"clear",
+				"clearFullScreen"
+			],
+			[
+				"hidd",
+				"hiddencount"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"NN",
+				"NNetwork"
+			],
+			[
+				"match",
+				"matchinfo"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "stylesheet.css",
+			"settings":
+			{
+				"buffer_size": 1680,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/whsieh/work/pweb-whsieh/index.html",
+		"/C/Users/whsieh/work/pweb-whsieh/app/game.html",
+		"/C/Users/whsieh/work/pweb-whsieh/app/js/game.js",
+		"/C/Users/whsieh/work/pweb-whsieh/canvasgraph.js",
+		"/C/Users/whsieh/work/pweb-whsieh/canvasgraph-min.js",
+		"/C/Users/whsieh/work/pweb-whsieh/stylesheet.css",
+		"/C/Users/whsieh/work/pweb-whsieh/app/js/walk-neural.js",
+		"/C/Users/whsieh/work/pweb-whsieh/app/js/walk-neural-min.js",
+		"/C/Users/whsieh/work/pweb-whsieh/app/js/game-min.js",
+		"/C/Users/whsieh/work/pweb-whsieh/pweb.sublime-project",
+		"/C/Users/whsieh/work/pweb-whsieh/app/js/neuralnet-min.js",
+		"/C/Users/whsieh/Dropbox/Shipr/app.js",
+		"/C/Users/whsieh/work/pweb/stylesheet.css",
+		"/C/Users/whsieh/work/pweb/canvasgraph-min.js",
+		"/C/Users/whsieh/work/pweb/jquery-1.9.1.js",
+		"/C/Users/whsieh/work/pweb/index.html",
+		"/C/Users/whsieh/work/dygraph2/public/javascripts/nodebook.js",
+		"/C/Users/whsieh/work/pweb/pweb.sublime-project",
+		"/C/Users/whsieh/work/shipr/match-provider.js",
+		"/C/Users/whsieh/work/shipr/analytics/neural.py",
+		"/C/Users/whsieh/work/shipr/app.js",
+		"/C/Users/whsieh/work/shipr/public/javascripts/network.js",
+		"/C/Users/whsieh/work/shipr/public/javascripts/shipr.js",
+		"/C/Users/whsieh/work/bniac/clustering.py",
+		"/C/Users/whsieh/Downloads/Add_Open_Command_Window_Here_as_Administrator.reg",
+		"/C/Users/whsieh/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/whsieh/work/shipr/analytics/util.py",
+		"/C/Users/whsieh/work/shipr/analytics/graph.py",
+		"/C/Users/whsieh/work/shipr/analytics/features.py",
+		"/C/Users/whsieh/work/shipr/analytics/community.py",
+		"/C/Users/whsieh/work/shipr/public/javascripts/util.js",
+		"/C/Users/whsieh/work/shipr/shipr.sublime-project",
+		"/home/whsieh/work/shipr/public/javascripts/whsieh-data.json",
+		"/home/whsieh/work/shipr/views/index.jade",
+		"/home/whsieh/work/shipr/views/match.jade",
+		"/home/whsieh/work/shipr/views/layout.jade",
+		"/home/whsieh/work/shipr/public/javascripts/numeric-1.2.6.min.js",
+		"/home/whsieh/work/shipr/node_modules/express/node_modules/connect/lib/utils.js",
+		"/home/whsieh/work/shipr/sampledata.json",
+		"/home/whsieh/work/shipr/public/javascripts/network.js",
+		"/home/whsieh/work/shipr/match-provider.js",
+		"/home/whsieh/work/shipr/package.json",
+		"/home/whsieh/work/shipr/routes/match.js",
+		"/home/whsieh/work/shipr/matchprovider.js",
+		"/home/whsieh/work/shipr/provider.js",
+		"/home/whsieh/work/shipr/shipr.sublime-project",
+		"/home/whsieh/work/shipr/shipr.sublime-workspace"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"nn",
+			"12",
+			"10",
+			"14",
+			"jQuery",
+			"jquery",
+			"forEach",
+			"foreach",
+			".js",
+			"and",
+			"this.complete",
+			"draw =",
+			"clear =",
+			"clear(",
+			"clear",
+			"clearAll",
+			"step",
+			"width",
+			"joe",
+			"sup",
+			"cwidth =",
+			"2px",
+			"100px",
+			"resume",
+			"update",
+			"\"",
+			"'",
+			"cwidth",
+			"\"",
+			"125",
+			"00",
+			"class='test",
+			"initializeMe",
+			"initialized",
+			"expandInit",
+			"mouseenter",
+			"handleVertexM",
+			"expandInit",
+			"TIME",
+			"time ",
+			"TIME",
+			")\n",
+			"panel =",
+			"panel",
+			"gmail",
+			"github",
+			"gmail",
+			"showPanel",
+			"border",
+			"open(",
+			"blank(",
+			"tab(",
+			"repulsion",
+			"expandP",
+			"initializeP",
+			"dygraph2",
+			"function ",
+			"projects",
+			"collapseProj",
+			".name",
+			".remove",
+			"remove",
+			"projects",
+			"collapseP",
+			" projects",
+			"projects ",
+			"projects",
+			"initializePro",
+			"e",
+			"Edge",
+			"gID",
+			"60",
+			"100",
+			".adj",
+			"Vertex",
+			"setFade",
+			"Edge",
+			"forEach",
+			"dygraph2",
+			"222222",
+			"1000",
+			"initializeGraph",
+			"'me'",
+			"init(",
+			"init",
+			"clear",
+			"fadeOut",
+			"fadeout",
+			"hideC",
+			"showPanel",
+			"drawBrush",
+			".x",
+			"50",
+			"- 50",
+			".x",
+			"scrollView",
+			"scroll",
+			"Vel.x",
+			"update",
+			"\"",
+			"panel",
+			"setTimeout",
+			"nodeAcc",
+			"vel",
+			"scroll",
+			"mouseVel",
+			"iewOffsetVel.",
+			"iewOffsetVel.x",
+			"update(",
+			"step",
+			"viewOffset",
+			"console.log",
+			"prevmouseX",
+			"32",
+			"FullScreen",
+			"doScroll",
+			"clear",
+			"mousePos",
+			"mousepos",
+			"function p",
+			"curMouseX",
+			"onmouse",
+			"onmouseup",
+			"curmousex",
+			"curMouseX",
+			"scrollVel",
+			"doScroll",
+			"scrolling"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "stylesheet.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1680,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								43,
+								43
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"project": "pweb.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"game.ht",
+				"pweb-whsieh\\app\\game.html"
+			],
+			[
+				"game",
+				"js\\game.js"
+			],
+			[
+				"walk-",
+				"js\\walk-neural.js"
+			],
+			[
+				".css",
+				"stylesheet.css"
+			],
+			[
+				"styl",
+				"stylesheet.css"
+			],
+			[
+				"ind",
+				"index.html"
+			],
+			[
+				"sty",
+				"stylesheet.css"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"ca",
+				"canvasgraph.js"
+			],
+			[
+				"",
+				"shipr\\match-provider.js"
+			],
+			[
+				".py",
+				"analytics\\neural.py"
+			],
+			[
+				"app",
+				"shipr\\app.js"
+			],
+			[
+				"network",
+				"javascripts\\network.js"
+			],
+			[
+				"shipr",
+				"javascripts\\shipr.js"
+			],
+			[
+				"neu",
+				"analytics\\neural.py"
+			],
+			[
+				"prov",
+				"shipr\\match-provider.js"
+			],
+			[
+				"feat",
+				"analytics\\features.py"
+			],
+			[
+				"comm",
+				"analytics\\community.py"
+			],
+			[
+				"util",
+				"analytics\\util.py"
+			],
+			[
+				"fea",
+				"analytics\\features.py"
+			],
+			[
+				"gra",
+				"analytics\\graph.py"
+			],
+			[
+				"grah",
+				"analytics\\graph.py"
+			],
+			[
+				"matc",
+				"views/match.jade"
+			],
+			[
+				".jade",
+				"views/index.jade"
+			],
+			[
+				"numer",
+				"javascripts/numeric-1.2.6.min.js"
+			],
+			[
+				"match",
+				"views/match.jade"
+			],
+			[
+				"net",
+				"javascripts/network.js"
+			],
+			[
+				"pac",
+				"shipr/package.json"
+			],
+			[
+				"netw",
+				"javascripts/network.js"
+			],
+			[
+				"match.ja",
+				"views/match.jade"
+			],
+			[
+				"packa",
+				"shipr/package.json"
+			],
+			[
+				"match-",
+				"shipr/match-provider.js"
+			],
+			[
+				"mat",
+				"routes/match.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"ship",
+				"C:\\Users\\whsieh\\work\\couplr\\shipr.sublime-project"
+			],
+			[
+				"bnia",
+				"C:\\Users\\whsieh\\work\\bniac\\bniac.sublime-project"
+			],
+			[
+				"",
+				"C:\\Users\\whsieh\\work\\shipr\\shipr.sublime-project"
+			],
+			[
+				"shi",
+				"C:\\Users\\whsieh\\work\\shipr\\shipr.sublime-project"
+			],
+			[
+				"bn",
+				"C:\\Users\\whsieh\\work\\bniac\\bniac.sublime-project"
+			],
+			[
+				"qwop",
+				"C:\\Users\\whsieh\\work\\qwop-ai\\qwop.sublime-project"
+			],
+			[
+				"bniac",
+				"C:\\Users\\whsieh\\work\\bniac\\bniac.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 592.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 277.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
